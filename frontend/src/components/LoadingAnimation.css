@@ -1,0 +1,120 @@
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-in-out;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading-overlay.exiting {
+  animation: fadeOut 0.3s ease-in-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.cloud-container {
+  position: relative;
+  width: 200px;
+  height: 140px;
+  color: #6366f1; /* Purple/indigo color to match theme */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: currentColor;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.cloud-svg {
+  width: 100%;
+  height: 100%;
+  animation: floatUp 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Floating animation with subtle wiggle */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(8px);
+  }
+  50% {
+    transform: translateY(-20px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(6px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.cloud-outline {
+  stroke: currentColor;
+  stroke-width: 3;
+  fill: none;
+}
+
+.cloud-fill {
+  transition: y 0.1s linear;
+  fill: currentColor;
+}
+
+/* Dark mode support for dashboard */
+.dashboard-container .loading-overlay,
+body.dashboard-active .loading-overlay {
+  background: rgba(15, 23, 42, 0.95);
+  color: #818cf8; /* Lighter purple for dark background */
+}
+
+/* Full screen overlay for page transitions */
+body .loading-overlay {
+  position: fixed;
+}

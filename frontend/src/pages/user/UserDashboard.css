@@ -1,0 +1,16 @@
+/* User Dashboard Specific Overrides */
+/* Most styles come from common-theme.css */
+
+.dashboard-container {
+  height: 100vh;
+}
+
+/* Keep any user-specific customizations here */
+.page-section {
+  padding: var(--spacing-xl);
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-lg);
+}

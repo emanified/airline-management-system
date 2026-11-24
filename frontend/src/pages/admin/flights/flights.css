@@ -1,0 +1,7 @@
+/* Flights Page - Uses AdminPages.css for base styles */
+/* Additional flights-specific styles */
+
+.main-content .flight-card,
+.main-content .booking-card {
+  /* Styles inherited from AdminPages.css */
+}

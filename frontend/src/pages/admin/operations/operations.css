@@ -1,0 +1,7 @@
+/* Operations Page - Uses AdminPages.css for base styles */
+/* Additional operations-specific styles */
+
+.main-content .operation-card,
+.main-content .booking-card {
+  /* Styles inherited from AdminPages.css */
+}

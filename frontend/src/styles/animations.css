@@ -1,0 +1,315 @@
+/* =================== GLOBAL ANIMATIONS & TRANSITIONS =================== */
+/* Smooth transitions and animations for all interactive elements */
+
+/* =================== PAGE TRANSITIONS =================== */
+.page-section,
+.main-content > * {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================== CARD ANIMATIONS =================== */
+/* Exclude user dashboard upcoming flights from animations */
+.user-card,
+.operation-card,
+.report-card,
+.schedule-card,
+.crew-card,
+.stats-card,
+.stat-card {
+  animation: slideInUp 0.5s ease-out;
+  animation-fill-mode: both;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.user-card:nth-child(1) { animation-delay: 0.05s; }
+.user-card:nth-child(2) { animation-delay: 0.1s; }
+.user-card:nth-child(3) { animation-delay: 0.15s; }
+.user-card:nth-child(4) { animation-delay: 0.2s; }
+.user-card:nth-child(5) { animation-delay: 0.25s; }
+
+/* User dashboard upcoming flights - no animations, just transitions */
+.main-content .bookings-list .booking-card,
+.main-content .flight-list .flight-card {
+  animation: none !important;
+  transition: all 0.2s ease !important;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================== BUTTON ANIMATIONS =================== */
+button,
+.primary-btn,
+button.primary-btn,
+.add-button,
+button.delete {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before,
+.primary-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:hover::before,
+.primary-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+button:hover,
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+button:active,
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+/* =================== INPUT ANIMATIONS =================== */
+input,
+select,
+textarea {
+  transition: all 0.2s ease !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* =================== MODAL ANIMATIONS =================== */
+.modal-overlay {
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =================== STATS CARD ANIMATIONS =================== */
+.stats-card,
+.stat-card {
+  animation: fadeInScale 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.stats-card:nth-child(1) { animation-delay: 0.1s; }
+.stats-card:nth-child(2) { animation-delay: 0.2s; }
+.stats-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =================== HOVER EFFECTS =================== */
+.user-card:hover {
+  animation: pulse 0.3s ease;
+}
+
+/* User dashboard upcoming flights - subtle hover only */
+.main-content .bookings-list .booking-card:hover,
+.main-content .flight-list .flight-card:hover {
+  animation: none !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* =================== LOADING ANIMATIONS =================== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e0e0e0 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* =================== SMOOTH SCROLLING =================== */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* =================== STATUS BADGE ANIMATIONS =================== */
+.status,
+.booking-status {
+  animation: fadeIn 0.3s ease;
+  transition: all 0.2s ease;
+}
+
+.status:hover,
+.booking-status:hover {
+  transform: scale(1.05);
+}
+
+/* =================== FORM ANIMATIONS =================== */
+.form-group {
+  animation: fadeIn 0.4s ease;
+  animation-fill-mode: both;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.05s; }
+.form-group:nth-child(2) { animation-delay: 0.1s; }
+.form-group:nth-child(3) { animation-delay: 0.15s; }
+.form-group:nth-child(4) { animation-delay: 0.2s; }
+.form-group:nth-child(5) { animation-delay: 0.25s; }
+
+/* =================== SEAT BUTTON ANIMATIONS =================== */
+.seat-box {
+  animation: fadeInScale 0.3s ease;
+  animation-fill-mode: both;
+}
+
+.seat-box:nth-child(1) { animation-delay: 0.05s; }
+.seat-box:nth-child(2) { animation-delay: 0.1s; }
+.seat-box:nth-child(3) { animation-delay: 0.15s; }
+.seat-box:nth-child(4) { animation-delay: 0.2s; }
+.seat-box:nth-child(5) { animation-delay: 0.25s; }
+.seat-box:nth-child(6) { animation-delay: 0.3s; }
+.seat-box:nth-child(7) { animation-delay: 0.35s; }
+.seat-box:nth-child(8) { animation-delay: 0.4s; }
+.seat-box:nth-child(9) { animation-delay: 0.45s; }
+
+/* =================== SECTION TITLE ANIMATIONS =================== */
+.section-title,
+.main-title {
+  animation: fadeInLeft 0.5s ease;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =================== LIST ANIMATIONS =================== */
+.bookings-list,
+.flight-list,
+.users-list {
+  animation: fadeIn 0.4s ease;
+}
+
+/* =================== EMPTY STATE ANIMATIONS =================== */
+.empty-state {
+  animation: fadeInScale 0.5s ease;
+}
+
+/* =================== POPUP MESSAGE ANIMATIONS =================== */
+.popup-message {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================== RESPONSIVE ANIMATIONS =================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+
+
+
+
+

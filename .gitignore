@@ -1,0 +1,14 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# dependencies and build output
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+dist/
+.vscode/
+*.zip

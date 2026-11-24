@@ -1,0 +1,7 @@
+/* Crew Page - Uses AdminPages.css for base styles */
+/* Additional crew-specific styles */
+
+.main-content .crew-card,
+.main-content .booking-card {
+  /* Styles inherited from AdminPages.css */
+}

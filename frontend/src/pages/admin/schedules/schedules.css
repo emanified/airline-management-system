@@ -1,0 +1,7 @@
+/* Schedules Page - Uses AdminPages.css for base styles */
+/* Additional schedules-specific styles */
+
+.main-content .schedule-card,
+.main-content .booking-card {
+  /* Styles inherited from AdminPages.css */
+}

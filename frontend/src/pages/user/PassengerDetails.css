@@ -1,0 +1,210 @@
+.passenger-container {
+  padding: 20px;
+}
+
+.form-card {
+  background: #f5f7fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-card label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #222;
+}
+
+.form-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #c8d1db;
+  margin-top: 6px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.form-card input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@media (max-width: 480px) {
+  .seat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+/* Seat box buttons - override all button styles with maximum specificity */
+.seat-grid button.seat-box,
+.seat-grid .seat-box,
+button.seat-box,
+.seat-box {
+  /* Reset only necessary button styles, not all */
+  box-sizing: border-box !important;
+  font-family: 'Inter', sans-serif !important;
+  
+  /* Apply custom styles */
+  padding: 1rem !important;
+  text-align: center !important;
+  border-radius: 10px !important;
+  border: 2px solid #e2e8f0 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  background-color: #ffffff !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  min-height: 3rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  width: 100% !important;
+  text-decoration: none !important;
+  line-height: 1.5 !important;
+  /* Ensure visibility */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.seat-grid button.seat-box:hover,
+.seat-grid .seat-box:hover,
+button.seat-box:hover,
+.seat-box:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  background-color: #667eea !important;
+  color: #fff !important;
+  border-color: #667eea !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* Selected seat - highest specificity to override base styles and index.css */
+.seat-grid button.seat-box.seat-selected,
+.seat-grid .seat-box.seat-selected,
+button.seat-box.seat-selected,
+.seat-box.seat-selected,
+.seat-grid button.seat-selected,
+.seat-grid .seat-selected,
+button.seat-box.seat-selected.seat-box,
+.seat-grid button.seat-box.seat-selected.seat-box,
+.seat-grid button.seat-box.seat-selected.seat-box.seat-selected,
+button.seat-box.seat-selected.seat-box.seat-selected {
+  background: #10b981 !important;
+  background-color: #10b981 !important;
+  background-image: none !important;
+  background-clip: padding-box !important;
+  -webkit-background-clip: padding-box !important;
+  color: #fff !important;
+  border-color: #10b981 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+  transform: scale(1.05) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  /* Force override any gradient or transparent backgrounds */
+  background-origin: padding-box !important;
+  -webkit-background-origin: padding-box !important;
+}
+
+.seat-grid button.seat-box.seat-selected:hover,
+.seat-grid .seat-box.seat-selected:hover,
+button.seat-box.seat-selected:hover,
+.seat-box.seat-selected:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  background-color: #059669 !important;
+  transform: scale(1.05) translateY(-2px) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Override any main-content button styles */
+.main-content .seat-grid button.seat-box,
+.main-content .seat-grid .seat-box {
+  box-sizing: border-box !important;
+  font-family: 'Inter', sans-serif !important;
+  padding: 1rem !important;
+  text-align: center !important;
+  border-radius: 10px !important;
+  border: 2px solid #e2e8f0 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  background-color: #ffffff !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  min-height: 3rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  outline: none !important;
+  width: 100% !important;
+  line-height: 1.5 !important;
+  /* Ensure visibility */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Override main-content selected seats */
+.main-content .seat-grid button.seat-box.seat-selected,
+.main-content .seat-grid .seat-box.seat-selected,
+.main-content button.seat-box.seat-selected,
+.main-content .seat-grid button.seat-box.seat-selected.seat-box {
+  background: #10b981 !important;
+  background-color: #10b981 !important;
+  background-image: none !important;
+  background-clip: padding-box !important;
+  -webkit-background-clip: padding-box !important;
+  background-origin: padding-box !important;
+  -webkit-background-origin: padding-box !important;
+  color: #fff !important;
+  border-color: #10b981 !important;
+}
+
+.primary-btn {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 40px;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}

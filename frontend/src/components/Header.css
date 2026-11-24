@@ -1,0 +1,167 @@
+/* ================= PREMIUM AIRLINE GLASS HEADER ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  height: 90px;
+  width: 100%;
+  padding: 0 40px;
+  
+  /* DEFAULT STATE: Fully Transparent, No Lines */
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              -webkit-backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Super smooth easing */
+}
+
+.header.solid {
+  background: linear-gradient(135deg, rgba(30, 20, 40, 0.95) 0%, rgba(40, 25, 50, 0.95) 100%); /* Purple-toned dark background */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 4px 30px rgba(139, 92, 246, 0.2);
+  height: 70px; /* Keep same height as default */
+}
+
+/* STATE: When user scrolls down on homepage */
+.header.scrolled {
+  height: 70px !important;
+  background-color: rgba(30, 20, 40, 0.95) !important; /* Purple-toned dark background */
+  background: linear-gradient(135deg, rgba(30, 20, 40, 0.95) 0%, rgba(40, 25, 50, 0.95) 100%) !important;
+  
+  /* The Blur Magic */
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  
+  /* Soft shadow with purple tint */
+  box-shadow: 0 4px 30px rgba(139, 92, 246, 0.3) !important;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.1) !important;
+}
+
+/* LOGO */
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+
+  position: relative;  
+  z-index: 1; /* stays above header background */
+}
+
+.logo:hover {
+  transform: scale(1.02); 
+  text-shadow: none;
+  /* keep z-index same to avoid jumping in stacking context */
+}
+
+
+/* NAVIGATION LINKS */
+.nav-links {
+  display: flex;
+  gap: 15px; /* Reduced gap slightly to account for padding */
+  margin-left: auto;
+  margin-right: 40px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 15px;
+  padding: 10px 20px; /* Added padding for the pill shape */
+  border-radius: 30px; /* Pill shape */
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  /* Ensure no border/line */
+  border: 1px solid transparent; 
+}
+
+/* NEW HOVER EFFECT: Purple Glass Pill */
+.nav-links a:hover {
+  background: rgba(139, 92, 246, 0.2); /* Purple glass fade */
+  color: #ffffff;
+  transform: translateY(-2px); /* Floats up slightly */
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(167, 139, 250, 0.3); /* Purple border */
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2); /* Purple glow */
+}
+
+/* Active State (Optional: if you have an 'active' class) */
+.nav-links a.active {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+  color: #ffffff;
+}
+
+/* LOGOUT / ACTION BUTTON */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  padding: 10px 28px;
+  border-radius: 50px;
+  
+  /* Default State */
+  background: rgba(139, 92, 246, 0.2);
+  color: white;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Button Hover: Purple glow */
+.logout-btn:hover {
+  background: rgba(167, 139, 250, 0.4);
+  color: white;
+  border-color: rgba(196, 181, 253, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); /* Purple glow */
+}
+
+/* Button Click Effect */
+.logout-btn:active {
+  transform: scale(0.95);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 20px;
+    height: 70px;
+  }
+  
+  .nav-links {
+    display: none; /* Hide nav links on mobile (would need a hamburger menu) */
+  }
+  
+  .logout-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,7 @@
+/* Reports Page - Uses AdminPages.css for base styles */
+/* Additional reports-specific styles */
+
+.main-content .report-card,
+.main-content .booking-card {
+  /* Styles inherited from AdminPages.css */
+}

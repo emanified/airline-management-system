@@ -1,0 +1,445 @@
+/* =================== ADMIN PAGES STYLES =================== */
+/* Unified styles for all admin pages: Flights, Users, Schedules, Crew, Operations, Reports */
+
+/* =================== MAIN CONTENT =================== */
+.main-content {
+  padding-bottom: 80px !important;
+  box-sizing: border-box;
+}
+
+/* =================== ACTION BAR =================== */
+.action-bar {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* =================== BUTTONS - SMALLER SIZE =================== */
+.main-content .primary-btn,
+.main-content button.primary-btn,
+.main-content .add-button {
+  padding: 0.5rem 1.5rem !important;
+  min-width: 180px !important;
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* White plus icon in primary buttons */
+.main-content .primary-btn svg.plus-icon,
+.main-content button.primary-btn svg.plus-icon {
+  width: 16px;
+  height: 16px;
+  stroke: white;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+.main-content .primary-btn::before,
+.main-content button.primary-btn::before,
+.main-content .add-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.main-content .primary-btn:hover::before,
+.main-content button.primary-btn:hover::before,
+.main-content .add-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.main-content .primary-btn:hover,
+.main-content button.primary-btn:hover,
+.main-content .add-button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transform: translateY(-1px);
+}
+
+.main-content .primary-btn:active,
+.main-content button.primary-btn:active,
+.main-content .add-button:active {
+  transform: translateY(0);
+}
+
+.main-content .primary-btn.small-btn {
+  padding: 0.4rem 0.875rem !important;
+  font-size: 0.8rem !important;
+}
+
+.main-content button.delete {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+.main-content button.delete:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+/* =================== REFRESH BUTTON - Compact Icon Style =================== */
+.refresh-btn {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  transform: translateY(-1px) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.refresh-btn:active:not(:disabled) {
+  transform: translateY(0) rotate(90deg) scale(0.95);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.refresh-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.refresh-btn:hover:not(:disabled) .refresh-icon {
+  animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =================== CARDS =================== */
+.main-content .booking-card,
+.main-content .flight-card,
+.main-content .user-card,
+.main-content .operation-card,
+.main-content .report-card,
+.main-content .schedule-card,
+.main-content .crew-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  padding: 1.25rem !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 100%;
+  animation: fadeInUp 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.main-content .booking-card:nth-child(1),
+.main-content .flight-card:nth-child(1),
+.main-content .user-card:nth-child(1) { animation-delay: 0.05s; }
+.main-content .booking-card:nth-child(2),
+.main-content .flight-card:nth-child(2),
+.main-content .user-card:nth-child(2) { animation-delay: 0.1s; }
+.main-content .booking-card:nth-child(3),
+.main-content .flight-card:nth-child(3),
+.main-content .user-card:nth-child(3) { animation-delay: 0.15s; }
+.main-content .booking-card:nth-child(4),
+.main-content .flight-card:nth-child(4),
+.main-content .user-card:nth-child(4) { animation-delay: 0.2s; }
+.main-content .booking-card:nth-child(5),
+.main-content .flight-card:nth-child(5),
+.main-content .user-card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content .booking-card:hover,
+.main-content .flight-card:hover,
+.main-content .user-card:hover,
+.main-content .operation-card:hover,
+.main-content .report-card:hover,
+.main-content .schedule-card:hover,
+.main-content .crew-card:hover {
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.main-content .booking-card > div:first-child,
+.main-content .flight-card > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.main-content .booking-card > div:last-child,
+.main-content .flight-card > div:last-child {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* =================== CARD CONTENT =================== */
+.main-content .booking-flight-name {
+  font-size: 1.1rem !important;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.main-content .booking-card > div > div:not(.booking-flight-name) {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #64748b);
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+/* =================== LISTS =================== */
+.main-content .bookings-list,
+.main-content .flight-list,
+.main-content .users-list,
+.main-content .operations-list,
+.main-content .reports-list,
+.main-content .schedules-list,
+.main-content .crew-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow: visible;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+/* =================== SECTION TITLES =================== */
+.main-content .section-title {
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary, #0f172a);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.main-content .section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1.75rem;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* =================== MAIN TITLE =================== */
+.main-content .main-title {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 1.5rem !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  letter-spacing: -0.5px;
+}
+
+/* =================== POPUP MESSAGES =================== */
+.main-content .popup-message {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+}
+
+.main-content .popup-message.success {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.main-content .popup-message.error {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* =================== EMPTY STATE =================== */
+.main-content .bookings-list > p,
+.main-content .flight-list > p {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary, #64748b);
+  font-size: 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 2px dashed #e2e8f0;
+}
+
+/* =================== MODAL BUTTONS =================== */
+.modal-footer .primary-btn {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  min-width: auto !important;
+}
+
+.modal-footer button {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  min-width: auto !important;
+}
+
+/* =================== MODAL OVERFLOW FIXES =================== */
+.modal-body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  max-height: calc(100vh - 280px) !important;
+  min-height: 0 !important;
+}
+
+.modal-body > * {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: visible;
+  width: 100%;
+}
+
+.modal-body form .form-group {
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-body form .form-group input,
+.modal-body form .form-group select,
+.modal-body form .form-group textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-body form textarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.modal-content {
+  max-height: calc(100vh - 80px) !important;
+  overflow: hidden !important;
+}
+
+.modal-overlay {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .main-content .booking-card,
+  .main-content .flight-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .main-content .booking-card > div:last-child,
+  .main-content .flight-card > div:last-child {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .main-content .primary-btn,
+  .main-content button.delete {
+    flex: 1;
+    min-width: 100px;
+  }
+}
+
+
+
+

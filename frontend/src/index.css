@@ -1,0 +1,134 @@
+/* ==========================================================
+   GLOBAL RESET
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= OFFSET FOR FIXED HEADER ON DASHBOARDS ================= */
+/* Dashboard containers now use margin-top instead of padding-top */
+
+/* ==========================================================
+   ROOT + BASE TYPOGRAPHY
+   ========================================================== */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* ==========================================================
+   BODY + HTML STRUCTURE
+   ========================================================== */
+html, body, #root {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  /* No explicit background override — respects :root theme */
+}
+
+/* Prevent body scroll on dashboard pages */
+body.dashboard-active {
+  overflow-y: hidden;
+  max-height: 100vh;
+}
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+/* ==========================================================
+   HEADINGS
+   ========================================================== */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Override default button styles for seat buttons and other custom buttons */
+/* Note: Selected seat styles are handled in PassengerDetails.css with higher specificity */
+button.seat-box:not(.seat-selected),
+.seat-box:not(.seat-selected) {
+  background-color: transparent;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+button:hover {
+  transition: all 0.2s ease;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ==========================================================
+   LAYOUT — Sticky Footer Pattern
+   ========================================================== */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrap {
+  flex: 1;
+  width: 100%;
+}

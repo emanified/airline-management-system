@@ -1,0 +1,648 @@
+/* =========================================================
+   COMMON DASHBOARD THEME
+   Modern, Clean, Professional Design
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Color Palette - Purple Cool Tones */
+  --primary-color: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --primary-light: #a78bfa;
+  --secondary-color: #64748b;
+  --accent-color: #a78bfa;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-dark: #0f172a;
+  --bg-dark-secondary: #1e293b;
+  
+  /* Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-light: #ffffff;
+  --text-muted: #94a3b8;
+  
+  /* Border & Shadow */
+  --border-color: #e2e8f0;
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  
+  /* Animation Durations */
+  --animation-fast: 0.2s;
+  --animation-base: 0.3s;
+  --animation-slow: 0.5s;
+}
+
+/* =================== DASHBOARD LAYOUT =================== */
+.dashboard-container {
+  display: flex;
+  height: calc(100vh - 70px);
+  max-height: calc(100vh - 70px);
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 70px;
+}
+
+/* =================== SIDEBAR =================== */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, rgba(30, 20, 40, 0.98) 0%, rgba(40, 25, 50, 0.98) 100%);
+  color: var(--text-light);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--text-light);
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navigation */
+.sidebar-nav,
+.menu,
+.menu-bottom {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.sidebar-nav-link,
+.menu-item {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: var(--text-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.sidebar-nav-link:hover,
+.menu-item:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--text-light);
+  transform: translateX(4px);
+}
+
+.sidebar-nav-link.active,
+.menu-item.active {
+  background: rgba(139, 92, 246, 0.3);
+  color: var(--primary-light);
+  border-left: 3px solid var(--primary-color);
+}
+
+.sidebar-bottom-nav {
+  margin-top: auto;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(167, 139, 250, 0.2);
+}
+
+/* =================== MAIN CONTENT =================== */
+.main-content {
+  flex: 1;
+  padding: var(--spacing-xl);
+  padding-bottom: 80px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg-secondary);
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.main-content > * {
+  overflow: visible;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Hide scrollbars on all child elements - only main-content should scroll */
+.main-content > *,
+.main-content > * > *,
+.main-content * {
+  overflow: visible !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
+}
+
+/* Only main-content should have scrollbar */
+.main-content {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  max-height: 100vh;
+}
+
+/* =================== TYPOGRAPHY =================== */
+.main-title,
+.top-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.top-header p,
+.main-title + p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+/* =================== STATS CARDS =================== */
+.stats-row,
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  width: 100%;
+  align-items: stretch;
+}
+
+.stats-card,
+.stat-card {
+  background: var(--bg-primary);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  border: 1px solid var(--border-color);
+}
+
+.stats-card:hover,
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stats-card h4,
+.stat-card h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-number,
+.stat-card p {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.stat-card .text-green-400 {
+  color: #1e40af; /* Dark blueish shade */
+}
+
+.stat-card .text-red-400 {
+  color: #ef4444;
+}
+
+/* =================== CARDS =================== */
+.flight-list,
+.bookings-list,
+.users-list,
+.flights-list,
+.operations-list,
+.reports-list,
+.schedules-list,
+.crew-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  overflow: visible;
+  flex: 0 1 auto;
+  min-height: 0;
+}
+
+.flight-card,
+.booking-card,
+.user-card,
+.operation-card,
+.report-card,
+.schedule-card,
+.crew-card {
+  background: var(--bg-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  min-height: 80px;
+  flex-shrink: 0;
+  animation: fadeInUp 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.flight-card:nth-child(1),
+.booking-card:nth-child(1) { animation-delay: 0.05s; }
+.flight-card:nth-child(2),
+.booking-card:nth-child(2) { animation-delay: 0.1s; }
+.flight-card:nth-child(3),
+.booking-card:nth-child(3) { animation-delay: 0.15s; }
+.flight-card:nth-child(4),
+.booking-card:nth-child(4) { animation-delay: 0.2s; }
+.flight-card:nth-child(5),
+.booking-card:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flight-card:hover,
+.booking-card:hover,
+.user-card:hover,
+.operation-card:hover,
+.report-card:hover,
+.schedule-card:hover,
+.crew-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+}
+
+.flight-card h4,
+.booking-flight-name,
+.user-name,
+.flight-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.flight-card p,
+.booking-card p,
+.user-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: var(--spacing-xs) 0;
+}
+
+/* =================== STATUS BADGES =================== */
+.status,
+.booking-status {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status.on-time,
+.status-ontime {
+  background: #dbeafe; /* Light blue background */
+  color: #1e3a8a; /* Dark blueish text */
+}
+
+.status.delayed,
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* =================== BUTTONS =================== */
+.primary-btn,
+button.primary-btn {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: var(--text-light);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn::before,
+button.primary-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.primary-btn:hover::before,
+button.primary-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.primary-btn:hover,
+button.primary-btn:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--accent-color));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.primary-btn:active,
+button.primary-btn:active {
+  transform: translateY(0);
+}
+
+/* =================== FORMS =================== */
+.form-card,
+.profile-card,
+.options-card,
+.airlines-card {
+  background: var(--bg-primary);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-top: var(--spacing-lg);
+  animation: fadeInUp 0.4s ease-out;
+  transition: all var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-card:hover,
+.profile-card:hover,
+.options-card:hover,
+.airlines-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  transition: all var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  transform: scale(1.01);
+}
+
+/* =================== SMOOTH SCROLLING & SYMMETRY =================== */
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Universal scrollbar styling - only on main-content and sidebar */
+.main-content,
+.sidebar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+}
+
+.main-content::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.main-content::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 3px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover,
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* Hide scrollbars everywhere else except main-content and sidebar */
+*:not(.main-content):not(.sidebar) {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*:not(.main-content):not(.sidebar)::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Ensure symmetric layout */
+.dashboard-container {
+  align-items: stretch;
+}
+
+.sidebar,
+.main-content {
+  align-self: stretch;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    max-height: none;
+  }
+  
+  .main-content {
+    padding: var(--spacing-lg);
+    height: auto;
+    min-height: calc(100vh - 200px);
+  }
+  
+  .stats-row,
+  .kpi-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .flight-card,
+  .booking-card,
+  .operation-card,
+  .report-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+  
+  .flight-list,
+  .bookings-list,
+  .operations-list,
+  .reports-list {
+    max-height: none;
+  }
+}
+
+/* =================== ANIMATIONS =================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* =================== MESSAGES =================== */
+.popup-message {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}
+
+.popup-message.success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.popup-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* =================== UTILITY CLASSES =================== */
+.text-center {
+  text-align: center;
+}
+
+.mt-3 {
+  margin-top: var(--spacing-lg);
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.gap-3 {
+  gap: var(--spacing-lg);
+}
+
